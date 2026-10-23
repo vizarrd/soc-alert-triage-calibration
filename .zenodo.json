@@ -1,0 +1,31 @@
+{
+  "title": "Recall-Constrained Alert Triage Across SOCs: Statistical Threshold Calibration",
+  "upload_type": "software",
+  "description": "Code, labelled Wazuh alert data, live-calibration labels and corrections, and all experiment scripts and saved outputs for the paper. The public AIT Alert Data Set is not redistributed; see README.md for how to obtain it.",
+  "creators": [
+    {
+      "name": "K, Visweshwaran",
+      "affiliation": "School of Electronics Engineering, Vellore Institute of Technology, Chennai, India"
+    },
+    {
+      "name": "C A, Rishikeshan",
+      "affiliation": "School of Computer Science and Engineering, Vellore Institute of Technology, Chennai, India"
+    }
+  ],
+  "keywords": [
+    "alert triage",
+    "security operations center",
+    "SIEM",
+    "Wazuh",
+    "threshold calibration",
+    "recall guarantee"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "10.5281/zenodo.8263181",
+      "scheme": "doi",
+      "resource_type": "dataset"
+    }
+  ]
+}

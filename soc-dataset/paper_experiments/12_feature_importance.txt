@@ -1,0 +1,23 @@
+Top 15 features (RandomForest, cleaned-text model)
+rule_level__rule_level                             0.0724
+full_log__pam_unix                                 0.0338
+primary_group__primary_group_pam                   0.0320
+decoder__decoder_pam                               0.0303
+full_log__session session                          0.0277
+full_log__ipaddr                                   0.0269
+full_log__ipaddr port                              0.0219
+full_log__port                                     0.0209
+full_log__timestamp                                0.0204
+full_log__for                                      0.0194
+full_log__for user                                 0.0187
+full_log__sudo                                     0.0187
+full_log__from                                     0.0183
+full_log__target sudo                              0.0179
+full_log__soc target                               0.0174
+
+Importance by feature family:
+full_log             0.8079
+rule_level           0.0724
+decoder              0.0604
+primary_group        0.0521
+hour                 0.0072

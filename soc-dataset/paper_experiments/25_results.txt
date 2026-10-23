@@ -1,0 +1,24 @@
+benign: n=221474, distinct rule descriptions=41, distinct decoders=10, top type share=0.35 (Dovecot Authentication Success.), top-5 share=0.96
+attack-window: n=170014, distinct rule descriptions=38, distinct decoders=11, top type share=0.90 (Web server 400 error code.), top-5 share=0.99
+
+benign top 8 rule descriptions:
+rule_description
+Dovecot Authentication Success.                                                                       78203
+IDS event.                                                                                            67266
+Suricata: Alert - SURICATA TLS invalid handshake message                                              26297
+Suricata: Alert - SURICATA TLS invalid record/traffic                                                 26197
+Suricata: Alert - ET INFO Observed DNS Query to .biz TLD                                              15615
+ClamAV database update                                                                                 2952
+Multiple IDS alerts for same id.                                                                       1450
+Suricata: Alert - ET POLICY GNU/Linux APT User-Agent Outbound likely related to package management     1176
+
+per scenario: distinct benign rule descriptions:
+scenario
+fox                24
+harrison           19
+russellmitchell    22
+santos             33
+shaw               27
+wardbeck           29
+wheeler            22
+wilson             23

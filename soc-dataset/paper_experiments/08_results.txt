@@ -1,0 +1,31 @@
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+=== Our classifier: REAL measured inference time ===
+Total time for 696 alerts: 21.040s
+Per-alert latency: 30.23 ms
+Marginal cost per alert: $0.00 (no API call, runs on existing hardware)
+
+=== LLM baseline: ESTIMATED from published pricing (not live-metered -- see README) ===
+Assumed ~200 input + 40 output tokens per alert
+Estimated cost per alert: $0.000320
+Typical API latency: ~800 ms per alert (network round-trip + inference)
+
+=== Scaled to realistic SOC alert volumes ===
+
+1,000 alerts/day:
+  Our classifier : $0.00/day, 30.2s total processing time
+  LLM baseline   : $0.32/day, 800.0s total processing time (~13.3 min)
+  Speedup: 26x faster, cost difference: $0.32/day
+
+10,000 alerts/day:
+  Our classifier : $0.00/day, 302.3s total processing time
+  LLM baseline   : $3.20/day, 8000.0s total processing time (~133.3 min)
+  Speedup: 26x faster, cost difference: $3.20/day
+
+100,000 alerts/day:
+  Our classifier : $0.00/day, 3023.0s total processing time
+  LLM baseline   : $32.00/day, 80000.0s total processing time (~1333.3 min)
+  Speedup: 26x faster, cost difference: $32.00/day
+
+[exited with code 0]

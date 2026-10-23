@@ -1,0 +1,43 @@
+1200 alerts; attack share 0.419
+scored fox
+scored harrison
+scored russellmitchell
+scored santos
+scored shaw
+scored wardbeck
+scored wheeler
+scored wilson
+
+Same 1,200 alerts (leave-one-scenario-out for trained models):
+method            mean per-scenario AUC  mean Relief@R95  pooled AUC
+LLM (few-shot)                    0.959            0.625       0.987
+LogReg                            0.950            0.735       0.987
+RF                                0.954            0.723       0.989
+MLP                               0.947            0.720       0.989
+rule_level                        0.695            0.532       0.699
+
+Paired bootstrap (2,000 resamples of alerts) 95% CI for mean-per-scenario AUC difference, LLM minus method:
+  LLM - LogReg    : mean +0.0084  95% CI [-0.0087, +0.0270]
+  LLM - RF        : mean +0.0051  95% CI [-0.0113, +0.0243]
+  LLM - MLP       : mean +0.0123  95% CI [-0.0006, +0.0288]
+  LLM - rule_level: mean +0.2641  95% CI [+0.2172, +0.3081]
+
+Per-scenario AUC (scenarios: fox, harrison, russellmitchell, santos, shaw, wardbeck, wheeler, wilson )
+  LLM (few-shot)   1.000 0.993 1.000 0.867 0.874 0.944 1.000 0.993
+  LogReg           1.000 0.992 1.000 0.899 0.824 0.905 1.000 0.984
+  RF               1.000 0.997 1.000 0.873 0.879 0.894 1.000 0.990
+  MLP              1.000 0.994 1.000 0.850 0.818 0.917 1.000 0.994
+  rule_level       0.711 0.771 0.757 0.504 0.640 0.759 0.651 0.767
+
+Scenario-level analysis of LLM minus method (8 scenarios as sampling units):
+  LLM - LogReg    : mean diff +0.0083; LLM higher in 4/8 scenarios; scenario-bootstrap 95% CI [-0.0069, +0.0248] (10,000 resamples of the 8 scenarios)
+  LLM - RF        : mean diff +0.0047; LLM higher in 2/8 scenarios; scenario-bootstrap 95% CI [-0.0032, +0.0184] (10,000 resamples of the 8 scenarios)
+  LLM - MLP       : mean diff +0.0122; LLM higher in 3/8 scenarios; scenario-bootstrap 95% CI [+0.0013, +0.0273] (10,000 resamples of the 8 scenarios)
+  LLM - rule_level: mean diff +0.2637; LLM higher in 8/8 scenarios; scenario-bootstrap 95% CI [+0.2251, +0.3072] (10,000 resamples of the 8 scenarios)
+
+Default decisions on the same alerts (TPR / FPR): LLM hard labels; models at score >= 0.5; rule_level at Youden-free level >= 5
+  LLM (few-shot)   TPR 0.976  FPR 0.000
+  LogReg           TPR 0.974  FPR 0.001
+  RF               TPR 0.974  FPR 0.000
+  MLP              TPR 0.974  FPR 0.001
+exit 0

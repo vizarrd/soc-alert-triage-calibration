@@ -1,0 +1,104 @@
+done fox stream 50000 prev 0.89
+done harrison stream 50000 prev 0.724
+done russellmitchell stream 41488 prev 0.206
+done santos stream 50000 prev 0.076
+done shaw stream 50000 prev 0.088
+done wardbeck stream 50000 prev 0.069
+done wheeler stream 50000 prev 0.693
+done wilson stream 50000 prev 0.691
+
+Stream sizes / prevalence / AUC:
+                        n_stream   prev    auc
+scenario        model                         
+fox             LogReg     50000  0.890  0.998
+                RF         50000  0.890  0.998
+harrison        LogReg     50000  0.724  0.994
+                RF         50000  0.724  0.995
+russellmitchell LogReg     41488  0.206  0.948
+                RF         41488  0.206  0.955
+santos          LogReg     50000  0.076  0.934
+                RF         50000  0.076  0.932
+shaw            LogReg     50000  0.088  0.912
+                RF         50000  0.088  0.932
+wardbeck        LogReg     50000  0.069  0.932
+                RF         50000  0.069  0.938
+wheeler         LogReg     50000  0.693  0.998
+                RF         50000  0.693  0.998
+wilson          LogReg     50000  0.691  0.995
+                RF         50000  0.691  0.995
+
+=== rho=0.90: mean over 8 scenarios (coverage target >= 0.90) ===
+                        coverage  p5_recall  cleared  fallback
+model  rule       k                                           
+LogReg guaranteed 50       0.980      0.955    0.460     0.500
+                  100      0.967      0.939    0.519     0.447
+                  200      0.964      0.934    0.559     0.343
+                  500      0.952      0.901    0.664     0.001
+                  1000     0.955      0.902    0.719     0.000
+       naive      50       0.457      0.743    0.872     0.000
+                  100      0.502      0.786    0.849     0.000
+                  200      0.525      0.817    0.866     0.000
+                  500      0.571      0.849    0.871     0.000
+                  1000     0.619      0.866    0.870     0.000
+RF     guaranteed 50       1.000      0.994    0.465     0.500
+                  100      0.996      0.986    0.522     0.448
+                  200      0.990      0.975    0.569     0.346
+                  500      0.979      0.945    0.705     0.001
+                  1000     0.974      0.943    0.762     0.000
+       naive      50       0.692      0.915    0.892     0.000
+                  100      0.745      0.915    0.868     0.000
+                  200      0.756      0.915    0.881     0.000
+                  500      0.776      0.915    0.887     0.000
+                  1000     0.802      0.918    0.887     0.000
+
+=== rho=0.90: WORST scenario coverage ===
+model   rule        k   
+LogReg  guaranteed  50      0.938
+                    100     0.923
+                    200     0.930
+                    500     0.929
+                    1000    0.923
+        naive       50      0.374
+                    100     0.442
+                    200     0.444
+                    500     0.482
+                    1000    0.470
+RF      guaranteed  50      1.000
+                    100     0.969
+                    200     0.948
+                    500     0.941
+                    1000    0.925
+        naive       50      0.324
+                    100     0.439
+                    200     0.465
+                    500     0.452
+                    1000    0.508
+
+=== Coverage vs target rho (k=200, guaranteed vs naive; mean over scenarios) ===
+                        coverage  cleared  fallback
+model  rule       rho                              
+LogReg guaranteed 0.80     0.968    0.760     0.038
+                  0.90     0.964    0.559     0.343
+                  0.95     0.971    0.503     0.464
+       naive      0.80     0.644    0.971     0.000
+                  0.90     0.525    0.866     0.000
+                  0.95     0.550    0.731     0.000
+RF     guaranteed 0.80     1.000    0.781     0.044
+                  0.90     0.990    0.569     0.346
+                  0.95     0.997    0.504     0.466
+       naive      0.80     1.000    0.974     0.000
+                  0.90     0.756    0.881     0.000
+                  0.95     0.759    0.757     0.000
+
+=== Per scenario, LogReg, rho=0.90, k=200 ===
+                  coverage           cleared       
+rule            guaranteed  naive guaranteed  naive
+scenario                                           
+fox                  0.937  0.514      1.000  1.000
+harrison             0.962  0.618      1.000  1.000
+russellmitchell      0.940  0.444      0.415  0.838
+santos               0.998  0.469      0.014  0.751
+shaw                 0.987  0.477      0.039  0.614
+wardbeck             1.000  0.629      0.006  0.726
+wheeler              0.954  0.541      1.000  1.000
+wilson               0.930  0.507      1.000  1.000

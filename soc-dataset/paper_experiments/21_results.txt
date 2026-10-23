@@ -1,0 +1,18 @@
+AIT-ADS leave-one-scenario-out (LogReg): mean AUC, worst-scenario AUC
+  all features       0.960  0.902
+  drop rule_level    0.961  0.902
+  drop hour          0.962  0.918
+  drop rule_group    0.961  0.902
+  drop decoder       0.961  0.902
+  drop log_text      0.961  0.902
+  only rule_level    0.692  0.600
+  only hour          0.633  0.315
+  only rule_group    0.964  0.919
+  only decoder       0.963  0.916
+  only log_text      0.958  0.888
+Traceback (most recent call last):
+  File "/w/paper_experiments/21_feature_ablation.py", line 48, in <module>
+    ns2 = {}; exec(open('13_triage_relief_analysis.py').read().split("curves, yte = run(")[0], ns2)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 14, in <module>
+ModuleNotFoundError: No module named 'matplotlib'

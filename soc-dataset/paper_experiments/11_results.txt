@@ -1,0 +1,50 @@
+
+======================================================================
+SEVERITY CLASSIFICATION (our trained model, 4-class)
+======================================================================
+              precision    recall  f1-score   support
+
+         low       1.00      0.67      0.80         3
+      medium       0.43      1.00      0.60       295
+        high       0.00      0.00      0.00       124
+    critical       1.00      0.04      0.07       274
+
+    accuracy                           0.44       696
+   macro avg       0.61      0.43      0.37       696
+weighted avg       0.58      0.44      0.29       696
+
+Macro F1: 0.368
+
+Confusion matrix (rows=true, cols=predicted), order: ['low', 'medium', 'high', 'critical']
+[[  2   1   0   0]
+ [  0 295   0   0]
+ [  0 124   0   0]
+ [  0 264   0  10]]
+
+======================================================================
+SEVERITY CLASSIFICATION (LLM, zero-shot, from experiment 03)
+======================================================================
+LLM severity predictions scored: 696/696
+              precision    recall  f1-score   support
+
+         low       0.01      0.33      0.01         3
+      medium       0.32      0.48      0.38       295
+        high       0.11      0.07      0.09       124
+    critical       1.00      0.09      0.17       274
+
+    accuracy                           0.25       696
+   macro avg       0.36      0.24      0.16       696
+weighted avg       0.55      0.25      0.25       696
+
+LLM Macro F1: 0.165
+
+LLM confusion matrix (rows=true, cols=predicted), order: ['low', 'medium', 'high', 'critical']
+[[  1   2   0   0]
+ [149 141   5   0]
+ [  1 114   9   0]
+ [  0 181  67  26]]
+
+======================================================================
+SUMMARY: Our classifier macro F1 = 0.368 | LLM macro F1 = 0.165
+======================================================================
+

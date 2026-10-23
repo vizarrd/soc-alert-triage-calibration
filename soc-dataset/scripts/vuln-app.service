@@ -1,0 +1,13 @@
+[Unit]
+Description=Mini Shop vulnerable demo app
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root
+ExecStart=/usr/bin/python3 /root/vuln_app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

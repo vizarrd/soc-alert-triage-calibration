@@ -1,0 +1,12 @@
+scored 1200 / 1200
+pooled: TPR=0.976 FPR=0.000 AUC=0.987 Relief@R95=1.000
+
+per scenario:  prev  TPR  FPR(1-cleared)  AUC
+fox              0.83  1.000  0.000  1.000
+harrison         0.69  0.981  0.000  0.993
+russellmitchell  0.19  1.000  0.000  1.000
+santos           0.10  0.733  0.000  0.867
+shaw             0.08  0.750  0.000  0.874
+wardbeck         0.06  0.889  0.000  0.944
+wheeler          0.72  1.000  0.000  1.000
+wilson           0.69  0.981  0.000  0.993

@@ -1,0 +1,38 @@
+                                   TPR    FPR   F1@1   F1@5  F1@10
+method                                                            
+Flag everything                  1.000  1.000  0.020  0.095  0.182
+rule_level (Youden)              1.000  0.976  0.020  0.097  0.186
+LLM zero-shot                    1.000  0.976  0.020  0.097  0.186
+LLM calibrated few-shot          1.000  0.976  0.020  0.097  0.186
+LogReg                           1.000  0.935  0.021  0.101  0.192
+Random Forest                    0.319  0.056  0.093  0.265  0.346
+Ensemble (RF+accum+level)        0.512  0.049  0.161  0.420  0.524
+MLP                              0.561  0.189  0.270  0.416  0.468
+XGBoost                          0.545  0.919  0.012  0.057  0.111
+Random Forest, raw text (leaky)  0.177  0.073  0.042  0.138  0.193
+
+alerts reviewed per attack at 5% (mean over seeds):
+method
+Flag everything                    20.0
+rule_level (Youden)                19.5
+LLM zero-shot                      19.5
+LLM calibrated few-shot            19.5
+LogReg                             18.8
+Random Forest                       4.7
+Ensemble (RF+accum+level)           2.8
+MLP                                 inf
+XGBoost                            33.1
+Random Forest, raw text (leaky)     8.9
+
+sd of F1@5% over seeds:
+method
+Flag everything                    0.000
+rule_level (Youden)                0.000
+LLM zero-shot                      0.000
+LLM calibrated few-shot            0.000
+LogReg                             0.000
+Random Forest                      0.070
+Ensemble (RF+accum+level)          0.008
+MLP                                0.260
+XGBoost                            0.000
+Random Forest, raw text (leaky)    0.009

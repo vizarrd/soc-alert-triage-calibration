@@ -1,0 +1,12 @@
+Part 1: settings whose certified coverage is below the nominal 0.90:
+    scenario   model    k  rho  cert_cov  n_cert     lo     hi
+187   santos  LogReg  100  0.8     0.862     116  0.788  0.913
+285     shaw      RF  200  0.9     0.899     148  0.840  0.938
+Wilson 95% interval reaches the nominal 0.90 in 2/2 of these.
+settings with certified coverage CI entirely below the (1-delta)=0.90 nominal level: 0 of 184
+
+Pooled over all 184 settings: 166,698/171,017 certified draws met their recall target = 0.9747 (95% Wilson [0.9740, 0.9755]); nominal guarantee >= 0.90
+
+Part 2: re-runs with 10,000 draws, recall on the unlabelled remainder, certified draws only
+santos/LogReg/k=100/rho=0.8: certified draws 1363/10000 (fallback 0.86); coverage on held-out remainder = 0.9296  95% Wilson [0.9147, 0.9420]
+shaw/RF/k=200/rho=0.9: certified draws 1565/10000 (fallback 0.84); coverage on held-out remainder = 0.9361  95% Wilson [0.9229, 0.9472]

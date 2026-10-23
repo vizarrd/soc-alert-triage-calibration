@@ -1,0 +1,9 @@
+fox done
+harrison done
+russellmitchell done
+santos done
+shaw done
+wardbeck done
+wheeler done
+wilson done
+[(('fox', False), 5476), (('fox', True), 44524), (('harrison', False), 13822), (('harrison', True), 36178), (('russellmitchell', False), 32951), (('russellmitchell', True), 8537), (('santos', False), 46207), (('santos', True), 3793), (('shaw', False), 45610), (('shaw', True), 4390), (('wardbeck', False), 46574), (('wardbeck', True), 3426), (('wheeler', False), 15367), (('wheeler', True), 34633), (('wilson', False), 15467), (('wilson', True), 34533)]

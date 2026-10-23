@@ -1,0 +1,13 @@
+                 raw_alerts  sampled   frac  unique_logs  unique_ratio  unique_rule_log_pairs
+scenario                                                                                     
+fox                  462523    50000  0.108        48434         0.969                  48443
+harrison             583754    50000  0.086        44097         0.882                  44108
+russellmitchell       41488    41488  1.000        22487         0.542                  22506
+santos               126513    50000  0.395        28592         0.572                  28608
+shaw                  68539    50000  0.730        26398         0.528                  26416
+wardbeck              88204    50000  0.567        27610         0.552                  27628
+wheeler              603939    50000  0.083        43898         0.878                  43907
+wilson               625303    50000  0.080        44342         0.887                  44349
+
+TOTAL raw alerts=2,600,263  sampled=391,488  unique log strings (within-scenario sum)=285,858
+Sampling: python random.sample() = uniform WITHOUT replacement, seed 1; scenarios with < 50,000 alerts are used in full.

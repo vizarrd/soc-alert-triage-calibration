@@ -1,0 +1,6 @@
+method,A_recall,A_noise_cleared,A_AUC,B_recall,B_other_benign_cleared,B_AUC
+rule_level,1.0,0.024,0.966,1.0,0.188,0.851
+LLM zero-shot,1.0,0.024,0.512,1.0,0.188,0.594
+LLM few-shot,1.0,0.024,0.618,1.0,0.188,0.465
+LogReg,1.0,0.065,0.969,1.0,0.5,0.722
+Random Forest (20 seeds),0.319,0.944,0.406,0.269,0.584,0.565

@@ -1,0 +1,31 @@
+Projected F1 by deployment prevalence (alerts that are real attacks):
+                       TPR    FPR  F1@1%  F1@5%  F1@10%  F1@30%  F1@82%
+method                                                                 
+flag-everything      1.000  1.000  0.020  0.095   0.182   0.462   0.901
+LLM (Claude)         1.000  0.976  0.020  0.097   0.186   0.468   0.903
+rule_level (Youden)  1.000  0.976  0.020  0.097   0.186   0.468   0.903
+LogReg @0.5          1.000  0.935  0.021  0.101   0.192   0.478   0.907
+RF @0.5              0.162  0.057  0.048  0.145   0.194   0.251   0.276
+MLP @0.5             0.625  0.065  0.155  0.437   0.565   0.703   0.762
+LogReg +20 labels    0.963  0.065  0.229  0.602   0.756   0.911   0.974
+MLP +20 labels       0.956  0.073  0.208  0.571   0.731   0.899   0.969
+
+Alerts an analyst must review per real attack found (1/precision; lower is better):
+                     rev/atk@1%  rev/atk@5%  rev/atk@10%  rev/atk@30%  rev/atk@82%
+method                                                                            
+flag-everything           100.0        20.0         10.0          3.3          1.2
+LLM (Claude)               97.6        19.5          9.8          3.3          1.2
+rule_level (Youden)        97.6        19.5          9.8          3.3          1.2
+LogReg @0.5                93.6        18.8          9.4          3.2          1.2
+RF @0.5                    35.7         7.7          4.2          1.8          1.1
+MLP @0.5                   11.3         3.0          1.9          1.2          1.0
+LogReg +20 labels           7.7         2.3          1.6          1.2          1.0
+MLP +20 labels              8.6         2.5          1.7          1.2          1.0
+
+Bootstrap 95% CI for F1 at 5% prevalence (2000 resamples of round 4):
+  flag-everything        0.095 - 0.095
+  LLM (Claude)           0.095 - 0.100
+  rule_level (Youden)    0.095 - 0.100
+  LogReg @0.5            0.097 - 0.106
+  MLP @0.5               0.329 - 0.606
+  RF @0.5                0.100 - 0.218

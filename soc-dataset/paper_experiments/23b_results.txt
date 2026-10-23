@@ -1,0 +1,35 @@
+cells total=240, with >=100 certified draws=184
+
+certified-only coverage by rho (target >= 0.90), all k, all scenarios/models:
+        min   mean  count
+rho                      
+0.80  0.862  0.983     72
+0.90  0.899  0.965     62
+0.95  0.906  0.967     50
+
+rho=0.90 by k (min / mean / n cells):
+               min   mean  count
+model  k                        
+LogReg 50    0.938  0.961      4
+       100   0.923  0.941      5
+       200   0.929  0.942      6
+       500   0.929  0.952      8
+       1000  0.923  0.955      8
+RF     50    1.000  1.000      4
+       100   0.925  0.985      5
+       200   0.899  0.974      6
+       500   0.941  0.979      8
+       1000  0.925  0.974      8
+
+cells with certified coverage < 0.90: 2
+    scenario   model    k  rho  cert_cov  n_cert
+187   santos  LogReg  100  0.8     0.862   116.0
+285     shaw      RF  200  0.9     0.899   148.0
+
+fallback rate (rho=0.90) by k, mean over scenarios:
+k
+50      0.500
+100     0.448
+200     0.344
+500     0.001
+1000    0.000

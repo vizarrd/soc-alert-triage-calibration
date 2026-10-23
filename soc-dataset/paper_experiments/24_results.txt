@@ -1,0 +1,23 @@
+test n=696  attacks=573  benign=123  (scanner-noise benign=107, other benign=16)
+
+Round-4 headline metrics (mean +- sd over seeds; deterministic methods have sd 0):
+                                      precision          recall              F1         cleared cleared_scanner cleared_other_benign             AUC             MCC        Relief95
+method                                                                                                                                                                              
+rule_level (Youden)                0.827 +- 0.0      1.0 +- 0.0    0.905 +- 0.0    0.024 +- 0.0      0.0 +- 0.0         0.188 +- 0.0    0.966 +- 0.0    0.142 +- 0.0    0.024 +- 0.0
+LLM zero-shot                      0.827 +- 0.0      1.0 +- 0.0    0.905 +- 0.0    0.024 +- 0.0      0.0 +- 0.0         0.188 +- 0.0             NaN    0.142 +- 0.0             NaN
+LLM calibrated few-shot            0.827 +- 0.0      1.0 +- 0.0    0.905 +- 0.0    0.024 +- 0.0      0.0 +- 0.0         0.188 +- 0.0    0.618 +- 0.0    0.142 +- 0.0    0.024 +- 0.0
+LogReg                             0.833 +- 0.0      1.0 +- 0.0    0.909 +- 0.0    0.065 +- 0.0      0.0 +- 0.0           0.5 +- 0.0    0.969 +- 0.0    0.233 +- 0.0    0.935 +- 0.0
+Random Forest                     0.96 +- 0.016  0.319 +- 0.093  0.471 +- 0.115  0.944 +- 0.005  0.998 +- 0.007       0.584 +- 0.031  0.404 +- 0.005  0.223 +- 0.062   0.06 +- 0.007
+Ensemble (RF+accum+level)           0.98 +- 0.0  0.512 +- 0.012   0.672 +- 0.01    0.951 +- 0.0      1.0 +- 0.0         0.625 +- 0.0    0.556 +- 0.0  0.357 +- 0.008  0.073 +- 0.002
+MLP                               0.863 +- 0.31   0.561 +- 0.31  0.649 +- 0.273  0.811 +- 0.366   0.801 +- 0.42       0.881 +- 0.143   0.882 +- 0.19  0.327 +- 0.202  0.685 +- 0.422
+XGBoost                            0.734 +- 0.0    0.545 +- 0.0    0.625 +- 0.0    0.081 +- 0.0      0.0 +- 0.0         0.625 +- 0.0    0.565 +- 0.0   -0.293 +- 0.0    0.081 +- 0.0
+Random Forest, raw text (leaky)  0.918 +- 0.005  0.177 +- 0.012  0.297 +- 0.017    0.927 +- 0.0      1.0 +- 0.0         0.438 +- 0.0   0.49 +- 0.064   0.108 +- 0.01    0.057 +- 0.0
+
+Random Forest per-seed recall range: 0.159 - 0.382
+Random Forest per-seed F1 range:     0.272 - 0.548
+
+Ensemble F1 > RF F1 in 20/20 seeds; recall higher in 20/20; mean F1 gain 0.201
+Leaky vs cleaned RF (20 seeds): F1 0.297+-0.017 vs 0.471+-0.115; recall 0.177 vs 0.319
+McNemar seed 0: classifier-only-correct=12, ensemble-only-correct=210, p=6.57e-40
+McNemar seed 1: classifier-only-correct=14, ensemble-only-correct=98, p=4.41e-15
+McNemar seed 2: classifier-only-correct=12, ensemble-only-correct=209, p=1.08e-39

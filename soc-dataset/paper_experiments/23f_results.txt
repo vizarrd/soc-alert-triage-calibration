@@ -1,0 +1,6 @@
+k | scenarios used | all-draw cov (same scenarios) | certified cov (same scenarios) | cleared (same) | fallback (same) || ALL 8: all-draw cov | cleared | fallback
+50 | 4 (fox,harrison,wheeler,wilson) | 0.961 | 0.961 | 0.92 | 0.00 || 0.981 | 0.46 | 0.50
+100 | 5 (fox,harrison,russellmitchell,wheeler,wilson) | 0.947 | 0.940 | 0.83 | 0.12 || 0.967 | 0.52 | 0.45
+200 | 6 (fox,harrison,russellmitchell,shaw,wheeler,wilson) | 0.952 | 0.944 | 0.74 | 0.14 || 0.964 | 0.56 | 0.34
+500 | 8 (fox,harrison,russellmitchell,santos,shaw,wardbeck,wheeler,wilson) | 0.952 | 0.952 | 0.66 | 0.00 || 0.952 | 0.66 | 0.00
+1000 | 8 (fox,harrison,russellmitchell,santos,shaw,wardbeck,wheeler,wilson) | 0.955 | 0.955 | 0.72 | 0.00 || 0.955 | 0.72 | 0.00

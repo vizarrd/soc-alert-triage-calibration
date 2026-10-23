@@ -1,0 +1,13 @@
+
+Our dataset (train rounds 1-3 -> test round 4, LogReg): AUC
+  all features       0.969
+  drop rule_level    0.397
+  drop hour          0.967
+  drop rule_group    0.974
+  drop decoder       0.970
+  drop log_text      0.973
+  only rule_level    0.966
+  only hour          0.500
+  only rule_group    0.584
+  only decoder       0.547
+  only log_text      0.334

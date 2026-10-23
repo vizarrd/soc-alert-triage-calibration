@@ -1,0 +1,11 @@
+.env
+*.env
+!.env.example
+venv/
+__pycache__/
+*.pyc
+*.joblib
+external_data/
+private_key/
+*.aux
+*.log

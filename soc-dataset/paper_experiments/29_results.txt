@@ -1,0 +1,11 @@
+rho=0.80 N=  3426 (K=  686): n in [11,1000]: min exact finite-pop success = 0.9019 (at n=18, r=2); min iid-with-same-p = 0.9013; settings with success < 0.90: 0/990
+rho=0.80 N= 10000 (K= 2000): n in [11,1000]: min exact finite-pop success = 0.9011 (at n=18, r=2); min iid-with-same-p = 0.9000; settings with success < 0.90: 0/990
+rho=0.80 N= 44524 (K= 8905): n in [11,1000]: min exact finite-pop success = 0.9008 (at n=154, r=25); min iid-with-same-p = 0.9000; settings with success < 0.90: 0/990
+rho=0.90 N=  3426 (K=  343): n in [22,1000]: min exact finite-pop success = 0.9025 (at n=22, r=1); min iid-with-same-p = 0.9010; settings with success < 0.90: 0/979
+rho=0.90 N= 10000 (K= 1000): n in [22,1000]: min exact finite-pop success = 0.9012 (at n=65, r=4); min iid-with-same-p = 0.9000; settings with success < 0.90: 0/979
+rho=0.90 N= 44524 (K= 4453): n in [22,1000]: min exact finite-pop success = 0.9007 (at n=65, r=4); min iid-with-same-p = 0.9002; settings with success < 0.90: 0/979
+rho=0.95 N=  3426 (K=  172): n in [45,1000]: min exact finite-pop success = 0.9030 (at n=45, r=1); min iid-with-same-p = 0.9015; settings with success < 0.90: 0/956
+rho=0.95 N= 10000 (K=  501): n in [45,1000]: min exact finite-pop success = 0.9015 (at n=45, r=1); min iid-with-same-p = 0.9010; settings with success < 0.90: 0/956
+rho=0.95 N= 44524 (K= 2227): n in [45,1000]: min exact finite-pop success = 0.9008 (at n=45, r=1); min iid-with-same-p = 0.9005; settings with success < 0.90: 0/956
+GLOBAL minimum exact finite-population success probability = 0.9007 at rho=0.9, N=44524, n=65
+

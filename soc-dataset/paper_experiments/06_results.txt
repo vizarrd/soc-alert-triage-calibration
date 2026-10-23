@@ -1,0 +1,77 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+======================================================================
+BASELINE: rule_level-only thresholding (the obvious naive approach)
+======================================================================
+Best rule_level threshold found on train set (Youden's J): 4.0
+                precision    recall  f1-score   support
+
+False Positive       1.00      0.02      0.05       123
+ True Positive       0.83      1.00      0.91       573
+
+      accuracy                           0.83       696
+     macro avg       0.91      0.51      0.48       696
+  weighted avg       0.86      0.83      0.75       696
+
+
+======================================================================
+MODEL COMPARISON: same feature pipeline, different classifiers
+======================================================================
+
+--- RandomForest ---
+                precision    recall  f1-score   support
+
+False Positive       0.24      0.94      0.39       123
+ True Positive       0.97      0.37      0.54       573
+
+      accuracy                           0.47       696
+     macro avg       0.61      0.66      0.46       696
+  weighted avg       0.84      0.47      0.51       696
+
+
+--- LogisticRegression ---
+                precision    recall  f1-score   support
+
+False Positive       1.00      0.07      0.12       123
+ True Positive       0.83      1.00      0.91       573
+
+      accuracy                           0.83       696
+     macro avg       0.92      0.53      0.52       696
+  weighted avg       0.86      0.83      0.77       696
+
+
+--- MLP ---
+                precision    recall  f1-score   support
+
+False Positive       0.28      0.98      0.44       123
+ True Positive       0.99      0.46      0.63       573
+
+      accuracy                           0.56       696
+     macro avg       0.64      0.72      0.54       696
+  weighted avg       0.87      0.56      0.60       696
+
+
+--- XGBoost ---
+                precision    recall  f1-score   support
+
+False Positive       0.04      0.08      0.05       123
+ True Positive       0.73      0.54      0.63       573
+
+      accuracy                           0.46       696
+     macro avg       0.39      0.31      0.34       696
+  weighted avg       0.61      0.46      0.52       696
+
+
+======================================================================
+SUMMARY (test = round 4, unseen IP + real pentest tools)
+======================================================================
+Model                                F1  Precision   Recall
+rule_level_baseline               0.905      0.827    1.000
+RandomForest                      0.539      0.968    0.373
+LogisticRegression                0.909      0.833    1.000
+MLP                               0.633      0.993    0.464
+XGBoost                           0.625      0.734    0.545
+
+[exited with code 0]

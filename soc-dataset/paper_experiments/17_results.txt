@@ -1,0 +1,10 @@
+scored 696/696
+missing: 0
+LLM v2 hard labels: TPR=1.000  FPR=0.976  noise cleared=0.024  F1(r4)=0.905
+LLM v2 ROC-AUC (attack_probability): 0.618
+  Relief@R90 = 0.024
+  Relief@R95 = 0.024
+  projected F1@1% = 0.020   alerts reviewed per attack = 97.6
+  projected F1@5% = 0.097   alerts reviewed per attack = 19.5
+  projected F1@10% = 0.186   alerts reviewed per attack = 9.8
+  projected F1@30% = 0.468   alerts reviewed per attack = 3.3

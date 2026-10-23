@@ -1,0 +1,6 @@
+k | all-draw cov (same scenarios) | certified cov (same scenarios) | cleared (same) 
+50 | 0.96100 | 0.96100 | diff=0.00000 
+100 | 0.94700 | 0.94011 | diff=0.00689 
+200 | 0.95167 | 0.94404 | diff=0.00763 
+500 | 0.95200 | 0.95193 | diff=0.00007 
+1000 | 0.95475 | 0.95475 | diff=0.00000 

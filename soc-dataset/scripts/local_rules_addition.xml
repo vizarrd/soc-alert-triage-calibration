@@ -1,0 +1,6 @@
+  <rule id="100100" level="12">
+    <if_sid>31100,31108</if_sid>
+    <url>%3B|%60|%7C|;whoami|;cat |;id|`id`|&#96;id&#96;</url>
+    <description>Possible OS command injection attempt in web request.</description>
+    <group>attack,command_injection,gdpr_IV_35.7.d,pci_dss_6.5,pci_dss_11.4,</group>
+  </rule>

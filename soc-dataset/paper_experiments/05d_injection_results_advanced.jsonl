@@ -1,0 +1,2 @@
+{"row_id": "fake_json_answer", "is_true_positive": true, "severity": "high"}
+{"row_id": "delimiter_breakout", "is_true_positive": true, "severity": "high"}

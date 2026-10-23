@@ -1,0 +1,9 @@
+1. rank selection: 468 (n, rho) pairs checked; mismatches between Beta, binomial-tail and the deployed code: 0
+   minimum labelled attacks for certification: rho=.9 -> 22 (code), expected ceil(ln .1/ln .9) = 22
+2. n=30 with 3-way ties: r=1, threshold=0.1 equals the r-th smallest labelled score; recall on the labelled set (>=) = 1.000 >= rho
+   all-equal scores: threshold equals that score and every attack is flagged (inclusive >=)
+   21 labelled attacks (< 22): falls back to flag-everything (-inf), as specified
+3. n=  22: rule coverage 0.9052 (MC se 0.0046); exact i.i.d. success prob for r=1: 0.9015
+3. n=  40: rule coverage 0.9203 (MC se 0.0043); exact i.i.d. success prob for r=2: 0.9195
+3. n= 100: rule coverage 0.9417 (MC se 0.0037); exact i.i.d. success prob for r=6: 0.9424
+ALL CHECKS PASSED

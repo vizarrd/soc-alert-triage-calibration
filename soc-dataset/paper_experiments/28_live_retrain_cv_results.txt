@@ -1,0 +1,19 @@
+Experiment 28 - retrain with live analyst labels (script: ../models/train_logreg_v3_with_live_labels.py, run on the VM, 2026-10-16)
+Live labels: 43 analyst labels (33 attacks, 10 benign) after correcting 3 misclicked routine dpkg alerts (audit table label_corrections).
+Training: 969 dataset alerts + live labelled alerts (live weight 5, chosen a priori). 5-fold stratified CV over the live labels.
+
+base alerts=969 (attacks 628), live labelled=43 (attacks 33, benign 10)
+held-out live ROC-AUC: base model 0.795 -> with live labels 0.767
+lowest held-out attack score: base 0.0004 -> with live labels 0.0222
+held-out attacks scoring < 0.5: base 13/33 -> with live labels 9/33
+held-out benign scoring >= 0.5: base 1/10 -> with live labels 3/10
+previously lowest-scoring labelled attacks (base -> held-out CV score):
+  2176: PAM: User login failed.                  0.0004 -> 0.1232
+  2706: PAM: User login failed.                  0.0038 -> 0.1942
+  3840: PAM: User login failed.                  0.0124 -> 0.3593
+  4580: PAM: User login failed.                  0.0219 -> 0.5722
+  4390: PAM: User login failed.                  0.0219 -> 0.3801
+saved wazuh_tp_logreg_v3.joblib
+
+Reading: retraining lifts the blind spot (SSH-bot PAM failures) and the weakest attack score that sets the certified threshold (~50x),
+but does not improve overall held-out ranking (AUC 0.795 -> 0.767) and raises benign false alarms (1/10 -> 3/10; n=10, noisy).

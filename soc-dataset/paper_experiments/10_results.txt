@@ -1,0 +1,65 @@
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+CLASSIFIER EVASION TEST (counterpart to experiment 05's LLM injection test)
+
+================================================================================
+ROUND 1: rule_level held at the attack's original custom-rule level (optimistic -- assumes Wazuh's regex rule still fired)
+================================================================================
+
+--- SQL injection ---
+  [baseline, rule_level=7] is_true_positive=True  confidence=0.839
+  [case_variation        , rule_level=7] is_true_positive=True  confidence=0.839  -> still caught
+  [comment_injection     , rule_level=7] is_true_positive=True  confidence=0.834  -> still caught
+  [whitespace_padding    , rule_level=7] is_true_positive=True  confidence=0.834  -> still caught
+  [synonym_swap          , rule_level=7] is_true_positive=True  confidence=0.779  -> still caught
+
+--- Command injection ---
+  [baseline, rule_level=12] is_true_positive=True  confidence=0.825
+  [operator_swap         , rule_level=12] is_true_positive=True  confidence=0.825  -> still caught
+  [backtick_variant      , rule_level=12] is_true_positive=True  confidence=0.825  -> still caught
+  [dollar_paren          , rule_level=12] is_true_positive=True  confidence=0.825  -> still caught
+  [double_encoding       , rule_level=12] is_true_positive=True  confidence=0.825  -> still caught
+
+--- XSS ---
+  [baseline, rule_level=12] is_true_positive=True  confidence=0.845
+  [case_variation        , rule_level=12] is_true_positive=True  confidence=0.845  -> still caught
+  [svg_vector            , rule_level=12] is_true_positive=True  confidence=0.845  -> still caught
+  [event_handler_variant , rule_level=12] is_true_positive=True  confidence=0.845  -> still caught
+  [encoded               , rule_level=12] is_true_positive=True  confidence=0.845  -> still caught
+
+SUBTOTAL: 0/12 evasion attempts succeeded (0.0%)
+
+================================================================================
+ROUND 2: rule_level dropped to 5 (realistic worst case -- evasion also defeats the Wazuh regex rule, matching only a generic low-severity rule)
+================================================================================
+
+--- SQL injection ---
+  [baseline, rule_level=7] is_true_positive=True  confidence=0.839
+  [case_variation        , rule_level=5] is_true_positive=True  confidence=0.799  -> still caught
+  [comment_injection     , rule_level=5] is_true_positive=True  confidence=0.794  -> still caught
+  [whitespace_padding    , rule_level=5] is_true_positive=True  confidence=0.794  -> still caught
+  [synonym_swap          , rule_level=5] is_true_positive=True  confidence=0.739  -> still caught
+
+--- Command injection ---
+  [baseline, rule_level=12] is_true_positive=True  confidence=0.825
+  [operator_swap         , rule_level=5] is_true_positive=True  confidence=0.77  -> still caught
+  [backtick_variant      , rule_level=5] is_true_positive=True  confidence=0.77  -> still caught
+  [dollar_paren          , rule_level=5] is_true_positive=True  confidence=0.77  -> still caught
+  [double_encoding       , rule_level=5] is_true_positive=True  confidence=0.77  -> still caught
+
+--- XSS ---
+  [baseline, rule_level=12] is_true_positive=True  confidence=0.845
+  [case_variation        , rule_level=5] is_true_positive=True  confidence=0.79  -> still caught
+  [svg_vector            , rule_level=5] is_true_positive=True  confidence=0.79  -> still caught
+  [event_handler_variant , rule_level=5] is_true_positive=True  confidence=0.79  -> still caught
+  [encoded               , rule_level=5] is_true_positive=True  confidence=0.79  -> still caught
+
+SUBTOTAL: 0/12 evasion attempts succeeded (0.0%)
+
+================================================================================
+OVERALL: Round 1 (rule_level intact): 0/12 evaded (0.0%)
+         Round 2 (rule_level also evaded, realistic worst case): 0/12 evaded (0.0%)
+================================================================================
+
+[exited with code 0]

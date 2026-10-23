@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "Recall-Constrained Alert Triage Across SOCs: Statistical Threshold Calibration"
+type: software
+authors:
+  - family-names: "K"
+    given-names: "Visweshwaran"
+    affiliation: "School of Electronics Engineering, Vellore Institute of Technology, Chennai, India"
+  - family-names: "C A"
+    given-names: "Rishikeshan"
+    affiliation: "School of Computer Science and Engineering, Vellore Institute of Technology, Chennai, India"
+repository-code: "https://github.com/vizarrd/soc-alert-triage-calibration"
+doi: "10.5281/zenodo.[TO-BE-ASSIGNED]"
