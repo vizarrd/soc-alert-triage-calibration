@@ -320,12 +320,9 @@ covers recall only; noise cleared is an empirical outcome.
 
 \begin{table*}[!t]
 \centering\footnotesize\setlength{\tabcolsep}{4.5pt}
-\caption{Coverage and cost of the guaranteed threshold on the large AIT-ADS streams (LogReg;
-$\rho=0.90$, $\delta=0.10$; 1{,}000 trials per scenario and $k$). $\hat c$: share of certified
-trials ($N_{\mathrm{cert}}$) with true recall $\ge\rho$, with 95\% Wilson interval;
-$\hat c_{\mathrm{all}}$ also counts uncertified trials (flag all) as successes; Uncert.: share of
-trials without a certificate. Guarantee-check columns use the $S$ scenarios with $\ge100$ certified
-trials at that $k$; cost columns average all 8 scenarios and must not be combined with them.
+\caption{Guaranteed threshold on the large AIT-ADS streams (LogReg, $\rho=0.90$, $\delta=0.10$, 1{,}000 trials per
+scenario and $k$). $\hat c$: coverage over certified trials ($N_{\mathrm{cert}}$) with 95\% Wilson interval; $\hat c_{\mathrm{all}}$ also
+counts uncertified trials as successes; $S$: scenarios with $\ge100$ certified trials; cost columns average all 8 scenarios.
 $^{\dagger}$Trivial. Bold: interval above 0.90.}
 \label{tab:large}
 \begin{tabular}{@{}llcccccccc@{}}
