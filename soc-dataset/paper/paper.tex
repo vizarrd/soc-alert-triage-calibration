@@ -30,22 +30,20 @@ rishikeshan.ca@vit.ac.in}}
 \maketitle
 
 \begin{abstract}
-Security operations centers (SOCs) receive far more alerts than analysts can review, and triage tools
-are usually judged by a single score, F1, on one dataset. We examine whether that is sufficient,
-using alerts from a Wazuh deployment that we attacked ourselves (969 labelled alerts) and the public
-AIT Alert Data Set (eight simulated enterprise scenarios). Three findings emerge. First, a high F1
-can be obtained by flagging nearly every alert, which saves analysts no work; at realistic attack
-rates such systems are close to flagging everything. Second, results do not carry over between
-environments: the ranking of an LLM, a rule-level threshold and trained classifiers differed between
-the datasets, and thresholds chosen in one environment often missed the recall target in another.
-Third, a classical order-statistic tolerance bound can select a threshold from a small random sample
-of analyst-labelled alerts, with at least 90\% recall at 90\% confidence under stated assumptions. In
-simulations on public alert streams totalling about 390,000 alerts, it reached an average coverage
-of 96.5\% in the settings where it could certify, at the cost of clearing fewer benign alerts than a
-naive threshold. A live implementation shows that the calibration workflow is feasible and that the
-threshold is sensitive to labelling errors. The results support evaluating at realistic attack
-rates, recalibrating for each environment, and checking labels before relying on a recall
-guarantee.
+Security operations centers (SOCs) are swamped with many more alerts than can be analyzed, and triage algorithms are
+often evaluated with one single metric, F1, on one dataset. In this paper, we ask whether this approach is appropriate,
+using both a dataset of our own attacks on a Wazuh SOC system (969 labelled alerts) and the public AIT Alert Data Set
+(eight enterprise-level simulated scenarios). We draw three conclusions. First, a good F1 score can be achieved by
+marking almost all alerts as malicious, which does not help analysts; at realistic attack rates, systems of this kind
+are close to flagging everything. Second, the results are not transferable between contexts: the ranking of an LLM, a
+rule-level threshold and trained classifiers differed on the two datasets, and thresholds tuned for one environment
+missed the recall objective in another. Third, a classical order-statistic tolerance bound allows choosing a threshold
+from a small random sample of alerts labelled by a human analyst, so that the system has at least 90\% recall with 90\%
+confidence. We tested this in simulations on public alert streams totalling about 390,000 alerts; the average coverage
+was 96.5\% in the settings where the method could certify, at the cost of clearing fewer benign alerts than a naive
+threshold. A live implementation shows the viability of the calibration process and its sensitivity to mislabelling.
+The results support evaluating at realistic attack rates, recalibrating for each environment, and validating labels
+before making any guarantee about recall.
 \end{abstract}
 
 \begin{IEEEkeywords}
