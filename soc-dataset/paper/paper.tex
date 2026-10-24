@@ -63,7 +63,7 @@ tested with F1 or accuracy on one dataset~\cite{arp2022} and then deployed in an
 attack rate, hosts and logs. We ask: (i) does a high F1 on a test set with many attacks actually
 mean that the analysts' workload is reduced? (ii) Does the ranking of the methods (rule-level
 threshold, trained classifiers, an LLM) hold across datasets? (iii) When a model moves to a new
-environment, how should its threshold be set, and what can be said about the attacks it catches? We also test whether LLMs, which are costly to run, beat cheap baselines.
+environment, how should its threshold be set, and what can be said about the attacks it catches? We also test whether costly LLMs beat cheap baselines.
 
 \textbf{Contributions.} (1) An analysis, with projection to realistic attack rates, showing that
 a high F1 can come from flagging everything. (2) A replication on the public AIT data~\cite{ait2023,landauer2024}, where an LLM
@@ -144,13 +144,13 @@ only if its timestamp lies in an attack-phase window published with the data set
 including scanner ``400 error'' alerts, is an attack here.
 We use leave-one-scenario-out evaluation: train on seven scenarios, test on the eighth.
 
-\textbf{Reproducibility.} The source code, the 969-alert labelled dataset, the live-calibration labels
-and corrections, and every experiment script with its saved output are maintained on GitHub
-(\url{https://github.com/vizarrd/soc-alert-triage-calibration}) and archived on Zenodo (doi:10.5281/zenodo.[number]). A
-reproduction guide maps each table and figure to its script, with fixed random seeds and exact package
-versions (Python 3.11, scikit-learn 1.9.1). The public AIT data set is not redistributed; it is obtained
-from its Zenodo record~\cite{ait2023} and processed by the provided sampling scripts. The LLM runs used
-blind sessions of a hosted model and may differ on rerun; raw verdicts are included.
+\textbf{Reproducibility.} The code, the 969-alert labelled dataset, the live-calibration labels and corrections,
+and every experiment script with its saved output are archived on Zenodo (doi:10.5281/zenodo.23608969) and
+maintained at \url{https://github.com/vizarrd/soc-alert-triage-calibration}. A guide maps each table and figure to its
+script, with fixed seeds and exact package versions (Python 3.11, scikit-learn 1.9.1). The public AIT data set is not
+redistributed; it is obtained from its Zenodo record~\cite{ait2023}. The LLM runs used blind sessions of a hosted model
+and may differ on rerun; raw verdicts are included. Personal identifiers in the testbed logs were masked (see the
+dataset README).
 
 \section{Evaluation Pitfalls on Our Data}
 
@@ -189,8 +189,7 @@ MLP & .65$\pm$.27 & .56$\pm$.31 & .81$\pm$.37 & .88$\pm$.19 & .69$\pm$.42 & .416
 \textbf{Ranking versus operating point.} Besides the default-threshold results, we judge how
 well each method separates attacks from noise at any threshold, using the Triage Relief Curve: the
 share of noise cleared against the share of attacks still caught. Its summary, Relief@R95, is the
-noise cleared while keeping at least 95\% of attacks. This is just a mirrored ROC curve, not a new
-method. The RF clears 94\% of noise at threshold 0.5, but its ROC-AUC is 0.404, below chance: it
+noise cleared while keeping at least 95\% of attacks. It is a mirrored ROC curve, not a new method. The RF clears 94\% of noise at threshold 0.5, but its ROC-AUC is 0.404, below chance: it
 calls most unfamiliar traffic benign (recall 0.32) instead of telling the classes apart. The
 ensemble beats the RF in all 20 seeds (McNemar $p<10^{-39}$ on seed 0), but that is a better
 operating point on a weak ranker (AUC 0.556), not better ranking. LogReg ranks well (AUC 0.969; it clears 93.5\% of
@@ -382,7 +381,7 @@ $k=100$; [0.79, 0.91], 116 trials). Neither interval lies entirely below 0.90; w
 sample, and recall measured on alerts that were not in the labelled sample. The reruns gave 0.936
 [0.92, 0.95] (1,565 certified trials) and 0.930 [0.92, 0.94] (1,363). We reran these two settings
 precisely because they looked low, which favours higher rerun values, so the reruns support, but
-do not prove, that the dips were random sampling noise. These are simulation estimates, not a proof.
+do not prove, that the dips were random sampling noise. These are simulation estimates, not proof.
 
 \textbf{Is the guarantee worth its cost?} Compare three ways of achieving the same goal (recall
 0.90). Flagging everything always meets it but clears nothing. The naive rule clears 0.87 of the
@@ -426,10 +425,8 @@ classify as benign. We corrected six of these (originals kept) and left
 the seventh. The system certified at 22 attacks with a threshold of 0.0665, set by that remaining
 routine alert, and flagged 211 of 229 scored alerts (92\%), against 156 (68\%) at the default
 threshold of 0.5. Because the weakest labelled attack sets the threshold, one routine alert labelled as an attack
-removes almost all noise reduction, and the guarantee needs correct labels (A2). Nine of 71 live labels (13\%) required correction.
-The deployment shows that the loop runs end to end with only a few dozen labels, and that the
-lowest-scoring labelled attacks act as a diagnostic: they point directly to what the model
-misses (Round 1) and to labels worth re-checking (Round 2).
+removes almost all noise reduction, and the guarantee needs correct labels (A2). Nine of 71 live labels (13\%) needed correction.
+The deployment shows that the loop runs end to end with a few dozen labels, and that the lowest-scoring labelled attacks act as a diagnostic: they point to what the model misses (Round 1) and to labels worth re-checking (Round 2).
 
 \section{Discussion and Limitations}
 

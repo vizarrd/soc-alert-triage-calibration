@@ -4,7 +4,7 @@ Code, data and experiment scripts for the paper *Recall-Constrained Alert Triage
 
 Repository: https://github.com/vizarrd/soc-alert-triage-calibration
 
-Archived release: Zenodo DOI **[to be filled after the first release]**.
+Archived release (v1.0.0): Zenodo DOI [10.5281/zenodo.23608969](https://doi.org/10.5281/zenodo.23608969).
 
 The paper studies how alert-triage models behave when moved between environments: why F1 on an
 attack-heavy test set can hide "flag everything" behaviour, why thresholds do not transfer, and how a
